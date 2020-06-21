@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXN-R1-MQF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--メモ一覧-->
+        <scene sceneID="L9v-YJ-cDH">
+            <objects>
+                <tableViewController id="EXN-R1-MQF" customClass="TableViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OUk-Gb-G4t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="5R0-zg-UqO">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="メモ一覧" id="cCM-6S-4AL">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="WwT-7h-vQh">
+                                        <connections>
+                                            <segue destination="E0j-Du-mZz" kind="show" id="GuU-8w-4FG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="memo" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memo" rowHeight="85" id="yNo-23-tCR">
+                                <rect key="frame" x="0.0" y="72" width="414" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yNo-23-tCR" id="edK-Sf-9Jb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kcU-Og-xo4" kind="show" identifier="memoDetail" id="FwF-Z6-Uck"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EXN-R1-MQF" id="Yuo-Np-HSc"/>
+                            <outlet property="delegate" destination="EXN-R1-MQF" id="vQ7-sg-Ff9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="メモ一覧" id="KJK-Ne-Ufe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kx1-hf-8Wa">
+                            <connections>
+                                <action selector="addButton:" destination="EXN-R1-MQF" id="OQW-zI-ySd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="cCM-6S-4AL" id="kkM-d7-ay7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UzY-Np-D9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773.91304347826087" y="135.9375"/>
+        </scene>
+        <!--メモ編集-->
+        <scene sceneID="oHT-6A-VUk">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="kcU-Og-xo4" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MTP-TD-8wf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1ir-im-w56">
+                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXE-Rt-7rH">
+                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="メモ編集" id="4Gt-SY-clx">
+                                        <barButtonItem key="leftBarButtonItem" title="＜戻る" id="9X4-V9-7gC">
+                                            <connections>
+                                                <action selector="backButton:" destination="kcU-Og-xo4" id="Yiz-Fb-9V9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="aNn-C0-UEv">
+                                            <connections>
+                                                <action selector="deleteButton:" destination="kcU-Og-xo4" id="cIB-fY-rAm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ohA-cX-p2m"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="メモ編集" id="X8F-hJ-zPb">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="TRd-vL-tef"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="1ir-im-w56" id="zv9-xn-xIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSZ-AC-Fdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665.217391304348" y="496.875"/>
+        </scene>
+        <!--メモ追加-->
+        <scene sceneID="uxl-z4-2An">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="E0j-Du-mZz" customClass="AddViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LBM-yK-cdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tSg-4G-7zs">
+                                <rect key="frame" x="0.0" y="76" width="414" height="820"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7o-y8-8XC">
+                                <rect key="frame" x="0.0" y="32" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="メモ追加" id="n1w-Kl-eYy">
+                                        <barButtonItem key="leftBarButtonItem" title="＜戻る" id="3ex-nz-HlM">
+                                            <connections>
+                                                <action selector="backButton:" destination="E0j-Du-mZz" id="0Dc-LW-KNM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="DEe-fb-tXe">
+                                            <connections>
+                                                <action selector="deleteButton:" destination="E0j-Du-mZz" id="sBv-rW-Fcs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="WPw-fA-vWL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="メモ追加" id="OQr-Le-bw2">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="d5s-x6-yV5"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="tSg-4G-7zs" id="KxZ-vZ-1PM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uMU-MQ-enP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671.0144927536232" y="-195.53571428571428"/>
+        </scene>
+    </scenes>
+</document>
